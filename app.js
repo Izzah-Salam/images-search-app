@@ -19,10 +19,24 @@ async function searchImages() {
 		searchResultEl.innerHTML = "";
 	}
 
-	const result = data.results;
-	console.log(result);
+	const results = data.results;
+	console.log(results);
 
-	const ImageWrapper = document.createElement("div");
+	results.map((result) => {
+		const ImageWrapper = document.createElement("div");
+		ImageWrapper.classList.add("img");
+		const image = document.createElement("img");
+		image.src = result.urls.small;
+		image.alt = result.alt_description;
+		const imageLink = document.createElement("a");
+		imageLink.href = result.links.html;
+		imageLink.target = "_blank";
+		imageLink.textContent = result.alt_description;
+
+		ImageWrapper.appendChild(image);
+		ImageWrapper.appendChild(imageLink);
+		searchResultEl.appendChild(ImageWrapper);
+	});
 
 	if (page > 1) {
 		showMoreBtn.style.display = block;
