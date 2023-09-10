@@ -4,7 +4,7 @@ const formEl = document.querySelector("form");
 const InputEl = document.getElementById("search-id");
 const SearchBtn = document.getElementById("search-btn");
 const searchResultEl = document.querySelector(".Search-result");
-const showMoreBtn = document.getElementById("show-more-btn");
+const showMoreBtnEl = document.getElementById("show-more-btn");
 
 let inputData = "";
 let page = 1;
@@ -38,13 +38,19 @@ async function searchImages() {
 		searchResultEl.appendChild(ImageWrapper);
 	});
 
+	page++;
+
 	if (page > 1) {
-		showMoreBtn.style.display = block;
+		showMoreBtnEl.style.display = "block";
 	}
 }
 
 formEl.addEventListener("submit", (event) => {
 	event.preventDefault();
 	page = 1;
+	searchImages();
+});
+
+showMoreBtnEl.addEventListener("click", () => {
 	searchImages();
 });
