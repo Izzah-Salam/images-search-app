@@ -14,7 +14,6 @@ body {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	margin: 20px;
 }
 
 .title {
@@ -31,7 +30,7 @@ body {
 }
 
 #search-id {
-	padding: 4px 20px;
+	padding: 10px 20px;
 	width: 60%;
 	max-width: 400px;
 	outline-color: green;
@@ -102,6 +101,7 @@ body {
 	font-size: 18px;
 	cursor: pointer;
 	display: none;
+	margin-bottom: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -110,7 +110,7 @@ body {
 	}
 
 	.title {
-		font-size: 32px;
+		font-size: 40px;
 	}
 }
 
